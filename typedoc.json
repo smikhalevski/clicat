@@ -1,0 +1,8 @@
+{
+  "name": "clicat",
+  "out": "./docs",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeExternals": true,
+  "cleanOutputDir": true
+}
