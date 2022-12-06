@@ -1,1 +1,1 @@
-export * from './parseCliOptions';
+export { parseCliOptions } from './parseCliOptions';

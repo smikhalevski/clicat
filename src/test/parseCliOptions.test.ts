@@ -11,7 +11,7 @@ describe('parseCliOptions', () => {
   });
 
   test('parses an arg shorthand', () => {
-    expect(parseCliOptions(['-f'], {f: 'foo'})).toEqual({foo: []});
+    expect(parseCliOptions(['-f'], {foo: 'f'})).toEqual({foo: []});
   });
 
   test('does not parse an arg shorthand without an alias', () => {
@@ -19,7 +19,7 @@ describe('parseCliOptions', () => {
   });
 
   test('parses a multiple arg shorthands', () => {
-    expect(parseCliOptions(['-abc'], {a: 'aaa', b: 'bbb', c: 'ccc'})).toEqual({aaa: [], bbb: [], ccc: []});
+    expect(parseCliOptions(['-abc'], {aaa: 'a', bbb: 'b', ccc: 'c'})).toEqual({aaa: [], bbb: [], ccc: []});
   });
 
   test('parses an arg with value', () => {
@@ -31,15 +31,15 @@ describe('parseCliOptions', () => {
   });
 
   test('parses an arg shorthand with a value', () => {
-    expect(parseCliOptions(['-f', 'bar'], {f: 'foo'})).toEqual({foo: ['bar']});
+    expect(parseCliOptions(['-f', 'bar'], {foo: 'f'})).toEqual({foo: ['bar']});
   });
 
   test('parses an arg shorthand with multiple values', () => {
-    expect(parseCliOptions(['-f', 'bar', '-f', 'baz'], {f: 'foo'})).toEqual({foo: ['bar', 'baz']});
+    expect(parseCliOptions(['-f', 'bar', '-f', 'baz'], {foo: 'f'})).toEqual({foo: ['bar', 'baz']});
   });
 
   test('parses multiple arg shorthands with a value', () => {
-    expect(parseCliOptions(['-abc', 'bar'], {a: 'aaa', b: 'bbb', c: 'ccc'})).toEqual({aaa: [], bbb: [], ccc: ['bar']});
+    expect(parseCliOptions(['-abc', 'bar'], {aaa: 'a', bbb: 'b', ccc: 'c'})).toEqual({aaa: [], bbb: [], ccc: ['bar']});
   });
 
   test('puts value without an option under ""', () => {
